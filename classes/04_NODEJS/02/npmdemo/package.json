@@ -1,0 +1,14 @@
+{
+  "name": "npmdemo",
+  "version": "1.0.0",
+  "description": "This is my first project with npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sreekanth M. E.",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}

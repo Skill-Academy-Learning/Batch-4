@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+      h1 {
+        color: red;
+      }
+
+      li {
+        padding-right: 50px;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+
+    <h1>Contact Us</h1>
+    <p>Welcome to my website. I am <%= name %> and I am a <%=profession%>.</p>
+
+    <ul>
+      <% for( let index = 0; index < offices.length; index++ ) { %>
+      <li><%= offices[index] %></li>
+      <% } %>
+    </ul>
+  </body>
+
+  <script>
+    console.log("I am javascript");
+  </script>
+</html>
