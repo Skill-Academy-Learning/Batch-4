@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "63d4f824d6bb93b76bdce8cc",
+    "first_name": "Venita",
+    "last_name": "Baltzar",
+    "email": "vbaltzar0@harvard.edu",
+    "gender": "Female",
+    "year": 1995,
+    "salary": 222068
+  },
+  {
+    "_id": "63d4f824d6bb93b76bdce8cd",
+    "first_name": "Nanete",
+    "last_name": "McTurlough",
+    "email": "nmcturlough1@xing.com",
+    "gender": "Female",
+    "year": 2000,
+    "salary": 692677
+  },
+  {
+    "_id": "63d4f824d6bb93b76bdce8ce",
+    "first_name": "Johnny",
+    "last_name": "Carp",
+    "email": "jcarp2@over-blog.com",
+    "gender": "Male",
+    "year": 2005,
+    "salary": 837242
+  },
+  {
+    "_id": "63d4f824d6bb93b76bdce8cf",
+    "first_name": "Mollee",
+    "last_name": "Unworth",
+    "email": "munworth3@newyorker.com",
+    "gender": "Female",
+    "year": 2009,
+    "salary": 716275
+  },
+  {
+    "_id": "63d4f824d6bb93b76bdce8d0",
+    "first_name": "Leighton",
+    "last_name": "Bellwood",
+    "email": "lbellwood4@google.ca",
+    "gender": "Male",
+    "year": 1986,
+    "salary": 711255
+  }
+]
