@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+      body {
+        min-height: 100vh;
+        background-color: silver;
+      }
+
+      #chat-content {
+        display: grid;
+        justify-items: start;
+      }
+
+      #chat-content ul {
+        background-color: lightskyblue;
+
+        height: 65vh;
+        width: 600px;
+
+        margin-bottom: 20px;
+        padding: 20px;
+
+        list-style: none;
+      }
+
+      h5,
+      h3 {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="username">Socket.io Chat Example</h3>
+    <h5 id="number-of-users-connected" style="color: maroon"></h5>
+
+    <div id="chat-content">
+      <ul id="chat-content-ul"></ul>
+    </div>
+
+    <form>
+      <input type="text" id="chat-text" />
+
+      <select id="user-list"></select>
+
+      <button onclick="submitForm(event)">Send</button>
+    </form>
+  </body>
+
+  <script>
+    const socket = io();
+
+    const username = prompt("Please enter your username:");
+
+    socket.emit("register", { username });
+
+    document.getElementById("username").innerText = `${username}'s Chat Window`;
+
+    socket.on("userlist", (data) => {
+      document.getElementById("user-list").innerHTML = data?.users.reduce(
+        (accumulator, element) => {
+          return `${accumulator}<option value="${element}">${element}</option>`;
+        },
+        ""
+      );
+
+      document.getElementById(
+        "number-of-users-connected"
+      ).innerHTML = `${data?.users.length} User(s)`;
+    });
+
+    socket.on("chat text", (data) => {
+      const li = document.createElement("li");
+      li.innerText = `${data?.fromUser}: ${data?.chatText}`;
+
+      document.getElementById("chat-content-ul").append(li);
+    });
+
+    function submitForm(e) {
+      e.preventDefault();
+
+      const chatText = document.getElementById("chat-text").value;
+      const toUser = document.getElementById("user-list").value;
+
+      socket.emit("chat text", { chatText, toUser, fromUser: username });
+
+      document.getElementById("chat-text").value = "";
+
+      const li = document.createElement("li");
+      li.innerText = `${username}: ${chatText}`;
+
+      document.getElementById("chat-content-ul").append(li);
+    }
+  </script>
+</html>
